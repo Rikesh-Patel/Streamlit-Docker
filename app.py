@@ -42,6 +42,12 @@ def render_svg(svg):
 
 
 if __name__ == "__main__":
+    try:
+        output = subprocess.check_output(['lsb_release', '-a'], text=True)
+        st.write( output)
+    except subprocess.CalledProcessError as e:
+            st.write( "An error occurred while trying to get Ubuntu version: " + str(e))
+     
     ### loading things up
     text = st.sidebar.title("Built on:")
     # logo = st.sidebar.image("images/streamlit.png")
