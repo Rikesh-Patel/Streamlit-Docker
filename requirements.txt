@@ -1,6 +1,6 @@
 cython==0.29.21
 streamlit
-numpy
-pandas==1.0.0
+numpy==1.18.1
+pandas
 scikit-learn==0.22.1
 dtreeviz==0.6
