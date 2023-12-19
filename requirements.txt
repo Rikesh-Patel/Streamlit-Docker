@@ -2,5 +2,5 @@ cython==0.29.21
 streamlit
 numpy==1.18.1
 pandas
-scikit-learn==0.22.1
-dtreeviz==0.6
+scikit-learn
+dtreeviz
