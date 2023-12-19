@@ -78,18 +78,18 @@ if __name__ == "__main__":
     new_observation = np.array([0, 0, 0, 0, 0, RM, 0, 0, 0, 0, 0, 0, LSTAT])
 
     # viz the predictions path
-    viz = dtreeviz(dtree,
-               X, 
-               y, 
-               target_name='price', 
-               orientation ='LR',  # left-right orientation
-               feature_names=feature_names,
-               X=new_observation)  # need to give single observation for prediction
-    viz.save("images/prediction_path.svg")
+    # viz = dtreeviz(dtree,
+    #            X, 
+    #            y, 
+    #            target_name='price', 
+    #            orientation ='LR',  # left-right orientation
+    #            feature_names=feature_names,
+    #            X=new_observation)  # need to give single observation for prediction
+    # viz.save("images/prediction_path.svg")
 
-    # read in svg prediction path and display
-    with open("images/prediction_path.svg", "r") as f:
-        svg = f.read()
-    render_svg(svg)
+    # # read in svg prediction path and display
+    # with open("images/prediction_path.svg", "r") as f:
+    #     svg = f.read()
+    # render_svg(svg)
     prediction_explanation = st.markdown(f"""According to the model, a house with {round(RM, 1)} rooms located in a neighborhood that is {LSTAT/100:.1%} lower status 
 should be valued at approximately ${dtree.predict(new_observation.reshape(1, -1)).item():,.0f}.""")
