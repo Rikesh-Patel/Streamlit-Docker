@@ -22,8 +22,8 @@ def load_data():
 
     target = raw_df.values[1::2, 2]
     # boston = load_boston()
-    X = boston.data
-    y = boston.target * 10_000
+    # X = boston.data
+    # y = boston.target * 10_000
     return data, target*10_000, data.columns.tolist()
 
 @st.cache()
