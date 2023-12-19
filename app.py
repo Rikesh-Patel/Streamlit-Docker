@@ -24,7 +24,7 @@ def load_data():
     # boston = load_boston()
     # X = boston.data
     # y = boston.target * 10_000
-    return data, target*10_000, data.columns.tolist()
+    return data, target*10_000, ["CRIM", "ZN", "INDUS", "CHAS", "NOX", "RM", "AGE", "DIS", "RAD", "TAX", "PTRATIO", "B", "LSTAT", "MEDV"]
 
 @st.cache()
 def fit_dtree(X, y):
