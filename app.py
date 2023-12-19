@@ -7,6 +7,7 @@ import numpy as np
 from dtreeviz.trees import *
 # from sklearn.datasets import load_boston
 from sklearn.tree import DecisionTreeRegressor
+import subprocess 
 
 # built-in
 import base64
