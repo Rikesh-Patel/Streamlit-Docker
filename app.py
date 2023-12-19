@@ -5,7 +5,7 @@ import content
 import streamlit as st
 import numpy as np
 from dtreeviz.trees import *
-from sklearn.datasets import load_boston
+# from sklearn.datasets import load_boston
 from sklearn.tree import DecisionTreeRegressor
 
 # built-in
@@ -13,11 +13,17 @@ import base64
 
 @st.cache()
 def load_data():
-    boston = load_boston()
+    data_url = "http://lib.stat.cmu.edu/datasets/boston"
+
+    raw_df = pd.read_csv(data_url, sep="\s+", skiprows=22, header=None)
+
+    data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
+
+    target = raw_df.values[1::2, 2]
+    # boston = load_boston()
     X = boston.data
     y = boston.target * 10_000
-    feature_names = boston.feature_names
-    return X, y, feature_names
+    return data, target*10_000, data.columns.tolist()
 
 @st.cache()
 def fit_dtree(X, y):
